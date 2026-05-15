@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>TurboNetCONNECT - Your Premier Internet Destination Since 1998</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    background-color: #c0d8f0;
+    background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.15) 0px, rgba(255,255,255,0.15) 2px, transparent 2px, transparent 10px);
+    color: #222;
+    min-height: 100vh;
+  }
+  .header { background: linear-gradient(180deg, #003399 0%, #0055cc 40%, #003399 100%); border-bottom: 4px solid #ff9900; padding: 0; position: relative; overflow: hidden; }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; padding: 10px 16px; }
+  .logo-block { display: flex; align-items: center; gap: 10px; }
+  .logo-icon { width: 52px; height: 52px; background: radial-gradient(circle at 35% 35%, #66aaff, #0033aa); border-radius: 50%; border: 3px solid #ff9900; display: flex; align-items: center; justify-content: center; font-size: 22px; box-shadow: 0 0 10px #ff990088; }
+  .logo-text { font-family: Impact, Arial Black, sans-serif; font-size: 28px; color: #ffffff; letter-spacing: 1px; text-shadow: 2px 2px 0 #ff9900, 3px 3px 0 #cc6600; line-height: 1; }
+  .logo-sub { font-size: 9px; color: #ffcc00; letter-spacing: 3px; text-transform: uppercase; margin-top: 2px; font-weight: bold; }
+  .header-right { text-align: right; }
+  .header-phone { font-family: Impact, Arial Black, sans-serif; font-size: 22px; color: #ffcc00; text-shadow: 1px 1px 0 #884400; }
+  .header-tagline { font-size: 11px; color: #aaccff; font-style: italic; }
+  .marquee-band { background: #ff9900; color: #003399; font-weight: bold; font-size: 12px; padding: 4px 0; overflow: hidden; white-space: nowrap; border-top: 2px solid #ffcc00; border-bottom: 2px solid #cc6600; }
+  .marquee-inner { display: inline-block; animation: marquee 22s linear infinite; padding-left: 100%; }
+  @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+  .nav { background: linear-gradient(180deg, #336699, #1a3d66); border-bottom: 2px solid #ff9900; display: flex; gap: 0; flex-wrap: wrap; }
+  .nav a { color: #ffffff; text-decoration: none; font-size: 12px; font-weight: bold; padding: 7px 13px; border-right: 1px solid rgba(255,255,255,0.2); display: block; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav a:hover { background: #ff9900; color: #003399; }
+  .nav a.active { background: #ff9900; color: #003399; }
+  .main-wrap { display: flex; gap: 10px; max-width: 100%; padding: 10px; }
+  .sidebar { width: 170px; flex-shrink: 0; }
+  .sidebar-box { background: #ffffff; border: 2px solid #336699; margin-bottom: 8px; font-size: 11px; }
+  .sidebar-box-title { background: linear-gradient(90deg, #003399, #0055cc); color: #ffcc00; font-weight: bold; padding: 4px 7px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .sidebar-box-body { padding: 6px 7px; }
+  .sidebar-box-body a { display: block; color: #003399; text-decoration: none; padding: 2px 0; font-size: 11px; border-bottom: 1px dotted #aabbcc; }
+  .sidebar-box-body a:hover { color: #cc3300; text-decoration: underline; }
+  .award-img { width: 140px; height: 80px; background: linear-gradient(135deg, #ffcc00, #ff9900); border: 3px double #cc6600; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold; color: #663300; text-align: center; margin: 6px auto; padding: 4px; line-height: 1.3; }
+  .counter-box { background: #000; color: #00ff00; font-family: 'Courier New', monospace; font-size: 18px; text-align: center; letter-spacing: 4px; padding: 6px; border: 2px inset #444; margin: 4px 0; }
+  .content { flex: 1; min-width: 0; }
+  .hero { background: linear-gradient(135deg, #003399 0%, #0066ff 50%, #003399 100%); border: 3px solid #ff9900; padding: 12px; margin-bottom: 10px; position: relative; overflow: hidden; text-align: center; color: white; }
+  .hero-badge { background: #ff0000; color: #ffff00; font-family: Impact, Arial Black, sans-serif; font-size: 13px; padding: 3px 10px; display: inline-block; border: 2px solid #ffff00; margin-bottom: 6px; animation: blink 1s step-start infinite; }
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+  .hero-title { font-family: Impact, Arial Black, sans-serif; font-size: 28px; color: #ffcc00; text-shadow: 2px 2px 0 #000033; margin: 4px 0; text-transform: uppercase; }
+  .hero-sub { font-size: 12px; color: #aaddff; margin-bottom: 8px; }
+  .hero-btn { background: linear-gradient(180deg, #ffcc00, #ff9900); color: #003399; font-weight: bold; font-size: 14px; padding: 8px 20px; border: 2px solid #cc6600; cursor: pointer; font-family: Impact, Arial Black, sans-serif; letter-spacing: 1px; text-transform: uppercase; box-shadow: 3px 3px 0 #663300; }
+  .section-title { background: linear-gradient(90deg, #003399, #0066cc, #003399); color: #ffcc00; font-family: Impact, Arial Black, sans-serif; font-size: 16px; padding: 6px 12px; margin-bottom: 0; border: 2px solid #ff9900; border-bottom: none; text-transform: uppercase; letter-spacing: 1px; }
+  .plans-table { width: 100%; border-collapse: collapse; border: 2px solid #336699; font-size: 11px; margin-bottom: 10px; background: #fff; }
+  .plans-table th { background: linear-gradient(180deg, #336699, #1a3d66); color: #ffcc00; font-weight: bold; padding: 5px 6px; text-align: center; border: 1px solid #7799bb; font-size: 10px; text-transform: uppercase; }
+  .plans-table td { padding: 4px 6px; border: 1px solid #aabbdd; text-align: center; vertical-align: middle; }
+  .plans-table tr:nth-child(even) td { background: #e8f0f8; }
+  .plans-table tr:nth-child(odd) td { background: #f5f8fc; }
+  .plan-name { font-weight: bold; color: #003399; font-size: 12px; text-align: left !important; }
+  .price-cell { font-family: Impact, Arial Black, sans-serif; font-size: 16px; color: #cc0000; }
+  .price-note { font-size: 9px; color: #666; display: block; font-style: italic; }
+  .order-btn { background: linear-gradient(180deg, #ffcc00, #ff9900); color: #003399; font-weight: bold; font-size: 10px; padding: 3px 7px; border: 1px solid #cc6600; cursor: pointer; text-transform: uppercase; white-space: nowrap; }
+  .footnote { font-size: 9px; color: #666; font-style: italic; background: #f0f0f0; border: 1px solid #ccc; padding: 5px 8px; margin-bottom: 10px; line-height: 1.5; }
+  .calc-box { background: #fff; border: 2px solid #336699; margin-bottom: 10px; }
+  .calc-inner { padding: 10px; }
+  .calc-intro { font-size: 11px; color: #336699; font-style: italic; margin-bottom: 8px; }
+  .calc-controls { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+  .calc-label { font-size: 11px; font-weight: bold; color: #003399; white-space: nowrap; }
+  .calc-select { font-size: 11px; border: 1px solid #336699; padding: 2px 4px; background: #eef3ff; color: #003399; }
+  .calc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 8px; }
+  .calc-item { background: #f0f5ff; border: 1px solid #aabbdd; padding: 6px 7px; text-align: center; }
+  .calc-item-icon { font-size: 16px; display: block; margin-bottom: 2px; }
+  .calc-item-label { font-size: 9px; color: #666; display: block; margin-bottom: 2px; line-height: 1.2; }
+  .calc-item-time { font-family: 'Courier New', monospace; font-size: 13px; font-weight: bold; color: #003399; display: block; }
+  .calc-item-time.fast { color: #006600; }
+  .calc-item-time.medium { color: #cc6600; }
+  .calc-item-time.slow { color: #cc0000; }
+  .calc-disclaimer { font-size: 9px; color: #888; font-style: italic; border-top: 1px dotted #ccc; padding-top: 5px; }
+  .faq-box { background: #fff; border: 2px solid #336699; margin-bottom: 10px; }
+  .faq-item { border-bottom: 1px solid #ddeeff; padding: 6px 10px; }
+  .faq-q { font-weight: bold; color: #003399; font-size: 11px; margin-bottom: 2px; }
+  .faq-q::before { content: '▶ '; font-size: 9px; color: #ff9900; }
+  .faq-a { font-size: 11px; color: #444; line-height: 1.5; padding-left: 12px; }
+  .footer { background: #003399; color: #aabbdd; font-size: 9px; padding: 10px 16px; border-top: 3px solid #ff9900; text-align: center; line-height: 1.8; }
+  .footer a { color: #ffcc00; text-decoration: underline; }
+  .footer-links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
+  .starburst { display: inline-block; background: #ff0000; color: #ffff00; font-weight: bold; font-size: 9px; padding: 4px 8px; border: 2px solid #ffff00; transform: rotate(-5deg); margin: 4px; font-family: Impact, Arial Black, sans-serif; }
+  .speed-bar-wrap { background: #dde5f0; height: 8px; border: 1px solid #9aaccc; margin-top: 3px; }
+  .speed-bar { height: 100%; background: linear-gradient(90deg, #0055cc, #00aaff); transition: width 0.4s ease; }
+  .tech-table { width: 100%; border-collapse: collapse; font-size: 10px; margin-bottom: 10px; }
+  .tech-table th { background: #336699; color: #fff; padding: 3px 6px; text-align: left; font-size: 10px; }
+  .tech-table td { padding: 3px 6px; border-bottom: 1px solid #ccd8e8; background: #f5f8ff; color: #333; }
+  .tech-table tr:nth-child(even) td { background: #e8eef8; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+  .tm { font-size: 8px; vertical-align: super; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="logo-block">
+      <div class="logo-icon">🌐</div>
+      <div>
+        <div class="logo-text">TurboNet<span style="color:#ff9900">CONNECT</span></div>
+        <div class="logo-sub">Your Premier Internet Destination Since 1998</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="header-phone">📞 1-800-FAST-NET</div>
+      <div class="header-tagline">Available Mon–Fri 9am–5pm (Closed Holidays)</div>
+      <div style="margin-top: 4px;">
+        <span class="starburst">AS SEEN ON TV!</span>
+        <span class="starburst" style="transform: rotate(3deg); background:#006600;">BBB A+ RATED</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="marquee-band">
+  <span class="marquee-inner">
+    🔥 LIMITED TIME OFFER: Sign up TODAY and receive a FREE Internet Explorer 11 Quick-Start Guide! &nbsp;&nbsp;&nbsp; ★ WINNER: Regional ISP of the Year 2019! ★ &nbsp;&nbsp;&nbsp; 📢 New! We now support Windows 8! &nbsp;&nbsp;&nbsp; ⚡ BLAZING FAST speeds up to 1 Gigabit! (where available, conditions apply, not a guarantee) &nbsp;&nbsp;&nbsp; 🎉 Ask about our FREE McAfee Antivirus trial (30 days)! &nbsp;&nbsp;&nbsp; 🔥 LIMITED TIME OFFER: Sign up TODAY and receive a FREE Internet Explorer 11 Quick-Start Guide!
+  </span>
+</div>
+
+<div class="nav">
+  <a class="active" href="#">Home</a>
+  <a href="#">Residential Plans</a>
+  <a href="#">Business Plans</a>
+  <a href="#">Tech Specs</a>
+  <a href="#">Support</a>
+  <a href="#">FAQ</a>
+  <a href="#">Coverage Map</a>
+  <a href="#">My Account</a>
+  <a href="#">Pay Bill</a>
+  <a href="#">Contact Us</a>
+</div>
+
+<div class="main-wrap">
+  <div class="sidebar">
+    <div class="sidebar-box">
+      <div class="sidebar-box-title">🔗 Quick Links</div>
+      <div class="sidebar-box-body">
+        <a href="#">Check My Email</a>
+        <a href="#">Speed Test</a>
+        <a href="#">Outage Map</a>
+        <a href="#">Reset Modem</a>
+        <a href="#">Download Center</a>
+        <a href="#">Netscape 9.0</a>
+        <a href="#">Setup Wizard</a>
+        <a href="#">Billing Portal</a>
+        <a href="#">Submit Ticket</a>
+      </div>
+    </div>
+    <div class="sidebar-box">
+      <div class="sidebar-box-title">⚠️ System Status</div>
+      <div class="sidebar-box-body">
+        <div style="color: #006600; font-weight: bold; font-size: 11px;">✅ All Systems Normal</div>
+        <div style="color: #666; font-size: 9px; margin-top: 3px;">Last checked: 03/14/2024 9:02 AM<br>Node ID: WQRT-7-ALPHA<br>Upstream: NOMINAL<br>BGP: ACTIVE</div>
+      </div>
+    </div>
+    <div class="sidebar-box">
+      <div class="sidebar-box-title">🏆 Awards</div>
+      <div class="sidebar-box-body">
+        <div class="award-img">🥇<br>Best ISP<br>Tri-County Area<br>2021</div>
+        <div class="award-img" style="background: linear-gradient(135deg, #c0c0c0, #a0a0a0); border-color: #888;">🥈<br>Runner-Up<br>State ISP Awards<br>2019</div>
+      </div>
+    </div>
+    <div class="sidebar-box">
+      <div class="sidebar-box-title">👥 Visitors</div>
+      <div class="sidebar-box-body">
+        <div style="font-size: 10px; color: #666; margin-bottom: 3px;">You are visitor #:</div>
+        <div class="counter-box" id="counter">0047291</div>
+        <div style="font-size: 9px; color: #888; font-style: italic; margin-top: 2px;">Since April 2003!</div>
+      </div>
+    </div>
+    <div class="sidebar-box">
+      <div class="sidebar-box-title">☀️ Local Weather</div>
+      <div class="sidebar-box-body">
+        <div style="font-size: 11px; color: #333;">📍 <b>Your City</b></div>
+        <div style="font-size: 20px; text-align:center; padding: 4px 0;">⛅</div>
+        <div style="font-size: 11px; text-align: center; color: #003399; font-weight: bold;">72°F</div>
+        <div style="font-size: 9px; color: #666; text-align:center;">Partly Cloudy</div>
+        <div style="font-size: 8px; color: #888; font-style:italic; margin-top:3px;">*Weather data from 2002 API</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="hero">
+      <div class="hero-badge">🔥 NEW PLANS AVAILABLE — LIMITED TIME!</div>
+      <div class="hero-title">WELCOME TO THE INFORMATION SUPERHIGHWAY</div>
+      <div class="hero-sub">TurboNetCONNECT delivers blazing fast internet speeds to YOUR home or office using state-of-the-art HFC cable plant infrastructure running DOCSIS 3.1 technology with IPv4/IPv6 dual-stack provisioning.</div>
+      <button class="hero-btn">▶ CLICK HERE TO ORDER NOW ◀</button>
+      <div style="font-size: 9px; color: #88aacc; margin-top: 6px; font-style: italic;">*Offer valid for new subscribers in serviceable areas only. Equipment rental fee not included. Installation required. See terms and conditions. Speeds not guaranteed. Requires compatible DOCSIS 3.0+ modem.</div>
+    </div>
+
+    <div class="section-title">📶 RESIDENTIAL INTERNET PLANS — COMPARE ALL 11 OPTIONS</div>
+    <table class="plans-table">
+      <thead>
+        <tr>
+          <th>Plan Name</th><th>Download<br>Speed</th><th>Upload<br>Speed</th><th>Latency<br>(Typical)</th><th>Data Cap<br>(Monthly)</th><th>Modem<br>Rental</th><th>Contract</th><th>Price/Mo</th><th>Order</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="plan-name">TurboStart Basic</td><td>5 Mbps</td><td>512 Kbps</td><td>38–65ms</td><td>150 GB</td><td>$9.99</td><td>2-Year</td><td class="price-cell">$29.99<span class="price-note">+taxes & fees</span></td><td><button class="order-btn">ORDER</button></td></tr>
+        <tr><td class="plan-name">TurboStart Plus</td><td>10 Mbps</td><td>1 Mbps</td><td>35–60ms</td><td>200 GB</td><td>$9.99</td><td>2-Year</td><td class="price-cell">$39.99<span class="price-note">+taxes & fees</span></td><td><button class="order-btn">ORDER</button></td></tr>
+        <tr><td class="plan-name">TurboStart Pro</td><td>25 Mbps</td><td>2 Mbps</td><td>30–55ms</td><td>300 GB</td><td>$9.99</td><td>2-Year</td><td class="price-cell">$49.99<span class="price-note">+taxes & fees</span></td><td><button class="order-btn">ORDER</button></td></tr>
+        <tr><td class="plan-name">TurboSpeed 50</td><td>50 Mbps</td><td>5 Mbps</td><td>25–48ms</td><td>500 GB</td><td>$12.99</td><td>1-Year</td><td class="price-cell">$59.99<span class="price-note">+taxes & fees</span></td><td><button class="order-btn">ORDER</button></td></tr>
+        <tr><td class="plan-name">TurboSpeed 100</td><td>100 Mbps</td><td>10 Mbps</td><td>22–40ms</td><td>750 GB</td><td>$12.99</td><td>1-Year</td><td class="price-cell">$69.99<span class="price-note">+taxes & fees</span></td><td><button class="order-btn">ORDER</button></td></tr>
+        <tr style="outline: 2px solid #ff0000;">
+          <td class="plan-name" style="background: #ffff99 !important;">⭐ TurboSpeed 200 <span style="color:#cc0000; font-size:9px;">[BEST VALUE!]</span></td>
+          <td style="background:#ffff99 !important; font-weight: bold;">200 Mbps</td><td style="background:#ffff99 !important;">20 Mbps</td><td style="background:#ffff99 !important;">18–35ms</td><td style="background:#ffff99 !important;">1 TB</td><td style="background:#ffff99 !important;">$12.99</td><td style="background:#ffff99 !important;">1-Year</td>
+          <td class="price-cell" style="background:#ffff99 !important; color: #cc0000;">$79.99<span class="price-note">+taxes & fees</span></td>
+          <td style="background:#ffff99 !important;"><button class="order-btn" style="background: linear-gradient(180deg,#ff0000,#cc0000); color: #fff; border-color: #880000;">ORDER!</button></td>
+        </tr>
+        <tr><td class="plan-name">TurboSpeed 400</td><td>400 Mbps</td><td>30 Mbps</td><td>15–28ms</td><td>1.5 TB</td><td>$14.99</td><td>1-Year</td><td class="price-cell">$89.99<span class="price-note">+taxes & fees</span></td><td><button class="order-btn">ORDER</button></td></tr>
+        <tr><td class="plan-name">TurboSpeed 500</td><td>500 Mbps</td><td>40 Mbps</td><td>14–26ms</td><td>2 TB</td><td>$14.99</td><td>1-Year</td><td class="price-cell">$99.99<span class="price-note">+taxes & fees</span></td><td><button class="order-btn">ORDER</button></td></tr>
+        <tr><td class="plan-name">TurboGig 750</td><td>750 Mbps</td><td>50 Mbps</td><td>12–22ms</td><td>3 TB</td><td>$16.99</td><td>Month-to-Month</td><td class="price-cell">$119.99<span class="price-note">+taxes & fees</span></td><td><button class="order-btn">ORDER</button></td></tr>
+        <tr><td class="plan-name">TurboGig 1000</td><td>1 Gbps</td><td>75 Mbps</td><td>10–18ms</td><td>5 TB</td><td>$16.99</td><td>Month-to-Month</td><td class="price-cell">$149.99<span class="price-note">+taxes & fees</span></td><td><button class="order-btn">ORDER</button></td></tr>
+        <tr><td class="plan-name">TurboGig MAX PRO™ ELITE</td><td>1 Gbps*</td><td>100 Mbps</td><td>8–15ms</td><td>Unlimited†</td><td>Included‡</td><td>Month-to-Month</td><td class="price-cell">$189.99<span class="price-note">+taxes & fees</span></td><td><button class="order-btn" style="background: linear-gradient(180deg,#6600cc,#440099); color:#fff; border-color:#330066;">ORDER</button></td></tr>
+      </tbody>
+    </table>
+
+    <div class="footnote">* Speeds "up to" and not guaranteed. Actual speeds vary based on line conditions, number of concurrent users, time of day, equipment, configuration, and network congestion. † "Unlimited" subject to Fair Use Policy. After 10TB of usage, speeds may be reduced to 1 Mbps for remainder of billing cycle. ‡ Modem included refers to DOCSIS 3.0 modem only; customer must supply their own router. Wi-Fi performance not included in speed ratings. IPv6 support requires manual configuration. Static IP add $14.99/mo. Early termination fee: $299. All prices subject to change without notice. Federal universal service charges, state & local taxes, regulatory recovery fees, and broadcast TV surcharges not included.</div>
+
+    <div class="section-title">⚙️ NETWORK TECHNICAL SPECIFICATIONS</div>
+    <div class="two-col" style="margin-top: 0; border: 2px solid #336699; border-top: none;">
+      <div style="padding: 8px;">
+        <table class="tech-table">
+          <tr><th colspan="2">Infrastructure</th></tr>
+          <tr><td>Network Type</td><td>HFC (Hybrid Fiber-Coaxial)</td></tr>
+          <tr><td>DOCSIS Version</td><td>3.1 (backward compat. 3.0)</td></tr>
+          <tr><td>Downstream Channels</td><td>Up to 32 bonded</td></tr>
+          <tr><td>Upstream Channels</td><td>Up to 8 bonded</td></tr>
+          <tr><td>Modulation</td><td>1024-QAM / OFDM</td></tr>
+          <tr><td>IPv4 / IPv6</td><td>Dual Stack (CGN for IPv4)</td></tr>
+          <tr><td>DNS Servers</td><td>198.51.100.1 / 198.51.100.2</td></tr>
+          <tr><td>DHCP Lease Time</td><td>86400 seconds</td></tr>
+        </table>
+      </div>
+      <div style="padding: 8px;">
+        <table class="tech-table">
+          <tr><th colspan="2">Signal Requirements</th></tr>
+          <tr><td>DS Power Level</td><td>-7 to +7 dBmV</td></tr>
+          <tr><td>US Power Level</td><td>38–48 dBmV</td></tr>
+          <tr><td>SNR (Downstream)</td><td>≥ 33 dB</td></tr>
+          <tr><td>SNR (Upstream)</td><td>≥ 25 dB</td></tr>
+          <tr><td>Pre-Equalization</td><td>Enabled</td></tr>
+          <tr><td>T3/T4 Timeouts</td><td>16/4 (per DOCSIS spec)</td></tr>
+          <tr><td>Approved Modems</td><td>17 models (see list)</td></tr>
+          <tr><td>Wi-Fi Standard</td><td>802.11n/ac/ax (customer equip)</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="section-title">📊 HOW FAST IS YOUR CONNECTION? DOWNLOAD TIME CALCULATOR</div>
+    <div class="calc-box">
+      <div class="calc-inner">
+        <div class="calc-intro">Select your plan speed below to see how long common downloads take. Compare and see why faster is always better!</div>
+        <div class="calc-controls">
+          <span class="calc-label">Your Plan Speed:</span>
+          <select class="calc-select" id="speedSelect" onchange="updateCalc()">
+            <option value="5">TurboStart Basic — 5 Mbps</option>
+            <option value="10">TurboStart Plus — 10 Mbps</option>
+            <option value="25">TurboStart Pro — 25 Mbps</option>
+            <option value="50">TurboSpeed 50 — 50 Mbps</option>
+            <option value="100">TurboSpeed 100 — 100 Mbps</option>
+            <option value="200" selected>TurboSpeed 200 — 200 Mbps ⭐</option>
+            <option value="400">TurboSpeed 400 — 400 Mbps</option>
+            <option value="500">TurboSpeed 500 — 500 Mbps</option>
+            <option value="750">TurboGig 750 — 750 Mbps</option>
+            <option value="1000">TurboGig 1000 — 1 Gbps</option>
+            <option value="1000">TurboGig MAX PRO™ ELITE — 1 Gbps</option>
+          </select>
+          <span id="speedDisplay" style="font-family:'Courier New',monospace; font-weight:bold; color:#003399; font-size:12px; background:#eef3ff; border:1px solid #aabbdd; padding:2px 6px;">200 Mbps</span>
+        </div>
+        <div class="calc-grid" id="calcGrid"></div>
+        <div class="calc-disclaimer">* Download times are theoretical maximums based on plan speed and do not account for server speed, Wi-Fi signal, number of devices, network congestion, protocol overhead (typically 10–15%), or router limitations. 1 MB = 8 Mb for calculation purposes.</div>
+      </div>
+    </div>
+
+    <div class="section-title">❓ FREQUENTLY ASKED QUESTIONS</div>
+    <div class="faq-box">
+      <div class="faq-item"><div class="faq-q">What is a Megabit and how is it different from a Megabyte?</div><div class="faq-a">A Megabit (Mb) is 1/8th of a Megabyte (MB). Internet speeds are measured in Megabits per second (Mbps). So a 100 Mbps connection can theoretically download 12.5 Megabytes per second. Most files are measured in Megabytes, so divide your plan speed by 8 to get your approximate MB/s download rate.</div></div>
+      <div class="faq-item"><div class="faq-q">What is the difference between DOCSIS 3.0 and DOCSIS 3.1?</div><div class="faq-a">DOCSIS 3.1 supports downstream speeds up to 10 Gbps using OFDM modulation across wider 192 MHz channels, while DOCSIS 3.0 tops out at approximately 1.2 Gbps using bonded QAM channels. Our network is DOCSIS 3.1 capable on select nodes.</div></div>
+      <div class="faq-item"><div class="faq-q">Do I need to buy a modem or can I rent one?</div><div class="faq-a">You may rent a modem from us for $9.99–$16.99/month depending on your plan, or purchase your own DOCSIS 3.0 or 3.1 approved modem. Please refer to our approved modem list (PDF, 847 KB) before purchasing. Unapproved modems are not supported.</div></div>
+      <div class="faq-item"><div class="faq-q">How do I configure my email client to use TurboNetCONNECT email?</div><div class="faq-a">Incoming (POP3): mail.turbonetconnect.net, Port 110. Incoming (IMAP): imap.turbonetconnect.net, Port 143. Outgoing (SMTP): smtp.turbonetconnect.net, Port 25 (or 587). Please disable SSL for best compatibility with Outlook Express and Windows Live Mail.</div></div>
+      <div class="faq-item"><div class="faq-q">Why is my internet slow at night?</div><div class="faq-a">Cable internet is a shared medium. During peak hours (typically 7–11pm), network congestion may affect speeds as more subscribers in your node utilize bandwidth simultaneously. This is a normal characteristic of HFC infrastructure and is not considered an outage.</div></div>
+      <div class="faq-item"><div class="faq-q">Do you support Windows Vista?</div><div class="faq-a">TurboNetCONNECT supports Windows XP SP3, Windows Vista, Windows 7, Windows 8, Windows 10, and Windows 11. Mac OS X 10.6 and above is also supported. Linux users should consult our community forums. Our setup CD requires a CD-ROM drive.</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="#">Terms of Service</a><a href="#">Privacy Policy</a><a href="#">Acceptable Use Policy</a><a href="#">CPNI Notice</a><a href="#">Network Management Disclosure</a><a href="#">Tariff Schedule</a><a href="#">Sitemap</a><a href="#">Webmaster</a>
+  </div>
+  <div>© 1998–2024 TurboNetCONNECT Communications, LLC. All Rights Reserved. TurboNetCONNECT<span class="tm">™</span> and TurboGig<span class="tm">™</span> are trademarks of TurboNetCONNECT Communications, LLC.<br>
+  This site is best viewed in Internet Explorer 9+ at 1024×768 resolution. | Member of the National Cable &amp; Telecommunications Association</div>
+</div>
+
+<script>
+const downloads = [
+  { icon: "🎵", label: "iTunes Song (AAC, 4 MB)", size: 4 },
+  { icon: "💿", label: "iTunes Album (128 MB)", size: 128 },
+  { icon: "🎬", label: "SD Movie (700 MB)", size: 700 },
+  { icon: "🎬", label: "HD Movie 1080p (4 GB)", size: 4096 },
+  { icon: "🎬", label: "4K UHD Movie (25 GB)", size: 25600 },
+  { icon: "🎮", label: "PC Game (8 GB)", size: 8192 },
+  { icon: "🎮", label: "Console Game (50 GB)", size: 51200 },
+  { icon: "🎮", label: "Modern AAA Game (100 GB)", size: 102400 },
+  { icon: "💾", label: "Software Update (500 MB)", size: 512 },
+  { icon: "📷", label: "DSLR Photo (25 MB)", size: 25 },
+  { icon: "🎵", label: "Spotify Monthly Cache (1 GB)", size: 1024 },
+  { icon: "📹", label: "1-Hour Zoom Recording (600 MB)", size: 614 },
+];
+function formatTime(s) {
+  if (s < 1) return "< 1 sec";
+  if (s < 60) return Math.round(s) + " sec";
+  if (s < 3600) { return Math.floor(s/60) + "m " + Math.round(s%60) + "s"; }
+  return Math.floor(s/3600) + "h " + Math.round((s%3600)/60) + "m";
+}
+function getTimeClass(s) { return s < 10 ? "fast" : s < 120 ? "medium" : "slow"; }
+function updateCalc() {
+  const spd = parseInt(document.getElementById('speedSelect').value);
+  document.getElementById('speedDisplay').textContent = spd >= 1000 ? '1 Gbps' : spd + ' Mbps';
+  const eff = spd * 0.88;
+  document.getElementById('calcGrid').innerHTML = downloads.map(d => {
+    const sec = (d.size * 8) / eff;
+    const pct = Math.min(100, Math.round((sec / 3600) * 100));
+    return '<div class="calc-item"><span class="calc-item-icon">' + d.icon + '</span><span class="calc-item-label">' + d.label + '</span><span class="calc-item-time ' + getTimeClass(sec) + '">' + formatTime(sec) + '</span><div class="speed-bar-wrap"><div class="speed-bar" style="width:' + pct + '%"></div></div></div>';
+  }).join('');
+}
+updateCalc();
+let count = 47291;
+setInterval(() => { count++; document.getElementById('counter').textContent = String(count).padStart(7,'0'); }, 8000);
+</script>
+</body>
+</html>
